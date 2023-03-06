@@ -1,27 +1,12 @@
 class Solution(object):
     def containsDuplicate(self, nums):
-        checker = 0
         self.list_check = nums
-        """
-        :type nums: List[int]
-        :rtype: bool
-        """
-        for x in range(len(self.list_check)):
-            if checker == 0:
-                checker = self.list_check[x]
-                print(checker + " 1")
-                continue
-            if checker != self.list_check[x]:
-                checker = self.list_check[x]
-                print(checker + " 2")
-                
-            if checker == self.list_check[x]:
-                print(checker + " 3")
-                print(True)
+        for item in self.list_check:
+            if self.list_check.count(item) > 1:
+                print(True) # return True
                 break
-            
         else:
-            print(False)
+            print(False) # return false
 
 SolutionObj = Solution()
     
