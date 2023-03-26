@@ -1,21 +1,24 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        hashset1 = set()
-        hashset2 = set()
         
-        tuple1 = tuple(s)
-        tuple2 = tuple(t)
-        
-        if len(tuple1) != len(tuple2):
+        if len(s) != len(t):
             return False
         
+        countS, countT = {}, {}
         
-        
-        for char in s:
-            hashset1.add(char)
-        for char in t:
-            hashset2.add(char)
-        if hashset1 == hashset2:
-            return True
-        else:
-            return False
+        for i in range(len(s)):
+            print(s[i])
+            countS[s[i]] = 1 + countS.get(s[i], 0)
+            countT[t[i]] = 1 + countT.get(t[i], 0)
+           
+            
+        for c in countS:
+            print(countS[c], countT[c])
+            if countS[c] != countT.get(c, 0):
+                return False
+        return True
+
+
+obj = Solution()
+
+obj.isAnagram("anagram", "nagaram")
